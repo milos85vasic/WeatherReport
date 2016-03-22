@@ -5,8 +5,6 @@ import com.weather_report.data.KeyValuePair;
 import com.weather_report.data.RetrieveData;
 import com.weather_report.weather_requests.WEATHER_REQUEST_TYPE;
 
-import java.util.HashMap;
-
 /**
  * Created by mvasic on 3/22/16.
  */
@@ -19,6 +17,9 @@ public enum ParametersManager implements RetrieveData<KeyValuePair<WEATHER_REQUE
             if (!enterParam.startsWith(Constants.PARAMETER_LEADING_SIGN)) {
                 throw new IllegalArgumentException(String.format("Unrecognized parameter [ %s ]", enterParam));
             }
+
+            // TODO: retrieve should take into account PARAMETER <-- --when for example...
+            PARAMETER parameter = PARAMETER.getByValue(enterParam.replace(Constants.PARAMETER_LEADING_SIGN, ""));
 
             //TODO: Parsing params.
             for (String param : params) {

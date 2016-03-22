@@ -18,7 +18,7 @@ public enum WEATHER_REQUEST_TYPE {
         return type;
     }
 
-    public WEATHER_REQUEST_TYPE getByValue(String value) {
+    public static WEATHER_REQUEST_TYPE getByValue(String value) {
         for (WEATHER_REQUEST_TYPE item : WEATHER_REQUEST_TYPE.values()) {
             if (item.getType().equals(value)) {
                 return item;

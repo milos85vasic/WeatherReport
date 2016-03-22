@@ -9,6 +9,7 @@ public class Main {
 
     public static void main(String[] args) {
         try {
+            // TODO: retrieve should take into account PARAMETER <-- --when for example...
             KeyValuePair<WEATHER_REQUEST_TYPE, Integer> params = ParametersManager.INSTANCE.retrieve(args);
             WeatherRequestManager.INSTANCE.schedule(params.getKey(), params.getValue());
         } catch (Exception e) {
