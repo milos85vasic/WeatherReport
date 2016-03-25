@@ -4,6 +4,8 @@ import com.weather_report.Execute;
 import com.weather_report.data.Constants;
 import com.weather_report.data.KeyValuePair;
 import com.weather_report.data.RetrieveData;
+import com.weather_report.help.Help;
+import com.weather_report.weather_requests.WEATHER_REQUEST_TYPE;
 import com.weather_report.weather_requests.WeatherRequestManager;
 
 /**
@@ -24,10 +26,27 @@ public enum CommandsManager implements
             COMMAND command = COMMAND.getByValue(enterParam.replace(Constants.PARAMETER_LEADING_SIGN, ""));
             KeyValuePair parameters = null;
 
-            // TODO: Work in progress.
-//            for (String param : params) {
-//                System.out.println("Param: " + param);
-//            }
+            switch (command) {
+                case WHEN:
+                    if (params.length < 2) {
+                        throw new IllegalArgumentException("--When, expects at least 1 additional parameter.");
+                    }
+
+                    WEATHER_REQUEST_TYPE requestType = WEATHER_REQUEST_TYPE.getByValue(params[1]);
+                    if (requestType.equals(WEATHER_REQUEST_TYPE.FUTURE)) {
+                        if (params.length < 3) {
+                            throw new IllegalArgumentException("--When Future, expects at least 1 additional parameter.");
+                        }
+
+                        Integer days = Integer.valueOf(params[2]);
+                        parameters = new KeyValuePair<>(requestType, days);
+                    } else {
+                        parameters = new KeyValuePair<>(requestType);
+                    }
+                    break;
+                default:
+                    break;
+            }
 
             return new KeyValuePair<>(command, parameters);
         }
@@ -36,13 +55,11 @@ public enum CommandsManager implements
         public boolean execute(KeyValuePair<COMMAND, KeyValuePair> command) {
             switch (command.getKey()) {
                 case HELP:
-                    System.out.println("WeatherReport Help.");
-                    // TODO: Implement HELP.
+                    Help.INSTANCE.load();
                     break;
                 case WHEN:
-                    System.out.println("Retrieving weather data.");
-                    // TODO: Implement weather data scheduling.
-                    //return WeatherRequestManager.INSTANCE.schedule();
+                    KeyValuePair<WEATHER_REQUEST_TYPE, Integer> weatherParams = command.getValue();
+                    WeatherRequestManager.INSTANCE.schedule(weatherParams.getKey(), weatherParams.getValue());
                     break;
                 default:
                     System.err.println("Unrecognized command.");
