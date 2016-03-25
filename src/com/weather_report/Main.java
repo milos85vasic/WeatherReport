@@ -1,17 +1,15 @@
 package com.weather_report;
 
+import com.weather_report.commands.COMMAND;
 import com.weather_report.data.KeyValuePair;
-import com.weather_report.parameters.ParametersManager;
-import com.weather_report.weather_requests.WEATHER_REQUEST_TYPE;
-import com.weather_report.weather_requests.WeatherRequestManager;
+import com.weather_report.commands.CommandsManager;
 
 public class Main {
 
     public static void main(String[] args) {
         try {
-            // TODO: retrieve should take into account PARAMETER <-- --when for example...
-            KeyValuePair<WEATHER_REQUEST_TYPE, Integer> params = ParametersManager.INSTANCE.retrieve(args);
-            WeatherRequestManager.INSTANCE.schedule(params.getKey(), params.getValue());
+            KeyValuePair<COMMAND, KeyValuePair> command = CommandsManager.INSTANCE.retrieve(args);
+            CommandsManager.INSTANCE.execute(command);
         } catch (Exception e) {
             System.err.println("Error: " + e.getMessage());
         }

@@ -1,15 +1,16 @@
-package com.weather_report.parameters;
+package com.weather_report.commands;
 
 /**
  * Created by mvasic on 3/22/16.
  */
-public enum PARAMETER {
+public enum COMMAND {
+    HELP("Help"),
     WHEN("When"),
     UNKNOWN("Unknown");
 
     String parameter;
 
-    PARAMETER(String parameter) {
+    COMMAND(String parameter) {
         this.parameter = parameter;
     }
 
@@ -17,8 +18,8 @@ public enum PARAMETER {
         return parameter;
     }
 
-    public static PARAMETER getByValue(String value) {
-        for (PARAMETER item : PARAMETER.values()) {
+    public static COMMAND getByValue(String value) {
+        for (COMMAND item : COMMAND.values()) {
             if (item.getParameter().equals(value)) {
                 return item;
             }
