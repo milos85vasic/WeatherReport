@@ -9,4 +9,9 @@ public class Constants {
     public static final long CODE_VERSION = 1;
     public static final String PARAMETER_LEADING_SIGN = "--";
 
+    public class Help {
+        public static final String SERVER = "http://weather.milosvasic.net/";
+        public static final String SERVICE = "help/";
+    }
+
 }
