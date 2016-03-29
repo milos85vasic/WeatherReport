@@ -1,6 +1,7 @@
 package com.weather_report.help;
 
 import com.weather_report.Load;
+import com.weather_report.data.Constants;
 
 
 /**
@@ -12,7 +13,15 @@ public enum Help implements Load {
         @Override
         public void load() {
             System.out.println("WeatherReport Help.");
-            // TODO: Load help
+
+            String help = HelpService.INSTANCE
+                    .retrieve(Constants.Help.SERVER)
+                    .getHelp(
+                            Constants.Help.SERVICE,
+                            Constants.VERSION
+                    );
+
+            System.out.println("RETROFIT RESPONSE:\n\n" + help);
         }
     }
 
