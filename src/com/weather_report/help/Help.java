@@ -18,7 +18,7 @@ public enum Help implements Load {
                     .retrieve(Constants.Help.SERVER)
                     .getHelp(
                             Constants.Help.SERVICE,
-                            Constants.VERSION
+                            Constants.CODE_VERSION
                     );
 
             System.out.println("RETROFIT RESPONSE:\n\n" + help);

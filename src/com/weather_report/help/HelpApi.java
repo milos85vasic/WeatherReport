@@ -9,6 +9,6 @@ import retrofit2.http.Path;
 public interface HelpApi {
 
     @GET("{service_root}/{code_version}")
-    String getHelp(@Path("service_root") String serviceRoot, @Path("code_version") String codeVersion);
+    String getHelp(@Path("service_root") String serviceRoot, @Path("code_version") Long codeVersion);
 
 }
