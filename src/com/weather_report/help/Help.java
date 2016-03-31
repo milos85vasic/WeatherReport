@@ -2,6 +2,9 @@ package com.weather_report.help;
 
 import com.weather_report.Load;
 import com.weather_report.data.Constants;
+import com.weather_report.help.api.HelpResponse;
+import com.weather_report.help.api.HelpService;
+import retrofit2.Call;
 
 
 /**
@@ -14,14 +17,14 @@ public enum Help implements Load {
         public void load() {
             System.out.println("WeatherReport Help.");
 
-            String help = HelpService.INSTANCE
+            Call<HelpResponse> help = HelpService.INSTANCE
                     .retrieve(Constants.Help.SERVER)
                     .getHelp(
                             Constants.Help.SERVICE,
                             Constants.CODE_VERSION
                     );
 
-            System.out.println("RETROFIT RESPONSE:\n\n" + help);
+            // System.out.println(help);
         }
     }
 
