@@ -7,6 +7,8 @@ import com.weather_report.data.Constants;
  */
 public class HelpResponse {
 
+
+
     @Override
     public String toString() {
         return String.format("%s %s\n", Constants.APP_NAME, Constants.VERSION);

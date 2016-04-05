@@ -1,7 +1,9 @@
 package com.weather_report.help;
 
+import com.google.gson.Gson;
 import com.weather_report.Load;
 import com.weather_report.data.Constants;
+import com.weather_report.help.api.HelpResponse;
 import com.weather_report.networking.HttpManager;
 
 /**
@@ -20,7 +22,11 @@ public enum Help implements Load {
                     String.valueOf(Constants.CODE_VERSION)
             );
 
-            System.out.println(">>> " + response);
+            if (response != null && response.length() > 0) {
+                Gson gson = new Gson();
+                HelpResponse helpResponse = gson.fromJson(response, HelpResponse.class);
+                System.out.println(helpResponse);
+            }
         }
     }
 
