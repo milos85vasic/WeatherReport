@@ -20,6 +20,7 @@ public enum Help implements Load {
                     String.valueOf(Constants.CODE_VERSION)
             );
 
+            System.out.println(">>> " + response);
         }
     }
 
