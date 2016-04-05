@@ -25,6 +25,8 @@ public enum HttpManager implements Pull<String, String> {
             try {
                 URL url = new URL(urlToParse.toString());
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                conn.setConnectTimeout(5000);
+                conn.setReadTimeout(5000);
                 conn.setRequestMethod("GET");
                 BufferedReader rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
                 String line;
@@ -33,7 +35,7 @@ public enum HttpManager implements Pull<String, String> {
                 }
                 rd.close();
             } catch (Exception e) {
-                System.err.println("Error: " + e.getMessage());
+                System.err.println("Couldn't load Help, " + e.getMessage());
             }
 
             return result.toString();
