@@ -25,7 +25,7 @@ public class HelpResponse {
         for (HelpCommand command : usage) {
             commands.append(command);
         }
-        return String.format("%s %s\n\n%s", Constants.APP_NAME, Constants.VERSION, commands);
+        return String.format("%s %s Help:\nCommands:\n%s", Constants.APP_NAME, Constants.VERSION, commands);
     }
 
 }

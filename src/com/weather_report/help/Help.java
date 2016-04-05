@@ -14,8 +14,6 @@ public enum Help implements Load {
     INSTANCE {
         @Override
         public void load() {
-            System.out.println("WeatherReport Help.");
-
             String response = HttpManager.GET.retrieve(
                     Constants.Help.SERVER,
                     Constants.Help.SERVICE,
