@@ -1,8 +1,8 @@
 package com.weather_report;
 
 import com.weather_report.commands.COMMAND;
-import com.weather_report.data.KeyValuePair;
 import com.weather_report.commands.CommandsManager;
+import com.weather_report.data.KeyValuePair;
 
 public class Main {
 
