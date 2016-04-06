@@ -8,6 +8,8 @@
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/okhttp-3.0.1.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/okio-1.6.0.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/retrofit-2.0.0-beta4.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/ant-1.6.5.jar" path-in-jar="/" />
+      <element id="library" level="project" name="ant:ant:1.6.5" />
       <element id="library" level="project" name="lib" />
     </root>
   </artifact>
