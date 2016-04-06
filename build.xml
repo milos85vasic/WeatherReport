@@ -2,7 +2,7 @@
 <project name="weatherreport" default="all">
   
   
-  <property file="WeatherReport.properties"/>
+  <property file="build.properties"/>
   <!-- Uncomment the following property if no tests compilation is needed -->
   <!-- 
   <property name="skip.tests" value="true"/>
@@ -106,6 +106,14 @@
     <pathelement location="${basedir}/lib/okio-1.6.0.jar"/>
     <pathelement location="${basedir}/lib/retrofit-2.0.0-beta4.jar"/>
   </path>
+  
+  <path id="library.org.apache.ant:ant-junit:1.9.4.classpath">
+    <pathelement location="${path.variable.maven_repository}/junit/junit/4.11/junit-4.11.jar"/>
+    <pathelement location="${path.variable.maven_repository}/org/apache/ant/ant-junit/1.9.4/ant-junit-1.9.4.jar"/>
+    <pathelement location="${path.variable.maven_repository}/org/apache/ant/ant-launcher/1.9.4/ant-launcher-1.9.4.jar"/>
+    <pathelement location="${path.variable.maven_repository}/org/apache/ant/ant/1.9.4/ant-1.9.4.jar"/>
+    <pathelement location="${path.variable.maven_repository}/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar"/>
+  </path>
   <!-- Register Custom Compiler Taskdefs -->
   <property name="javac2.home" value="${idea.home}/lib"/>
   <path id="javac2.classpath">
@@ -143,23 +151,27 @@
   <path id="weatherreport.module.production.classpath">
     <path refid="${module.jdk.classpath.weatherreport}"/>
     <path refid="library.lib.classpath"/>
+    <path refid="library.org.apache.ant:ant-junit:1.9.4.classpath"/>
   </path>
   
   <path id="weatherreport.runtime.production.module.classpath">
     <pathelement location="${weatherreport.output.dir}"/>
     <path refid="library.lib.classpath"/>
+    <path refid="library.org.apache.ant:ant-junit:1.9.4.classpath"/>
   </path>
   
   <path id="weatherreport.module.classpath">
     <path refid="${module.jdk.classpath.weatherreport}"/>
     <pathelement location="${weatherreport.output.dir}"/>
     <path refid="library.lib.classpath"/>
+    <path refid="library.org.apache.ant:ant-junit:1.9.4.classpath"/>
   </path>
   
   <path id="weatherreport.runtime.module.classpath">
     <pathelement location="${weatherreport.testoutput.dir}"/>
     <pathelement location="${weatherreport.output.dir}"/>
     <path refid="library.lib.classpath"/>
+    <path refid="library.org.apache.ant:ant-junit:1.9.4.classpath"/>
   </path>
   
   
@@ -225,6 +237,11 @@
     <mkdir dir="${artifact.temp.output.weatherreport:jar}"/>
     <jar destfile="${temp.jar.path.WeatherReport.jar}" duplicate="preserve" filesetmanifest="mergewithoutmain">
       <zipfileset dir="${weatherreport.output.dir}"/>
+      <zipfileset src="${path.variable.maven_repository}/org/apache/ant/ant-junit/1.9.4/ant-junit-1.9.4.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/org/apache/ant/ant/1.9.4/ant-1.9.4.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/org/apache/ant/ant-launcher/1.9.4/ant-launcher-1.9.4.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/junit/junit/4.11/junit-4.11.jar"/>
+      <zipfileset src="${path.variable.maven_repository}/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar"/>
       <zipfileset src="${basedir}/lib/converter-gson-2.0.0-beta4.jar"/>
       <zipfileset src="${basedir}/lib/gson-2.4.jar"/>
       <zipfileset src="${basedir}/lib/okhttp-3.0.1.jar"/>
@@ -235,6 +252,11 @@
       <zipfileset file="${basedir}/lib/okhttp-3.0.1.jar"/>
       <zipfileset file="${basedir}/lib/okio-1.6.0.jar"/>
       <zipfileset file="${basedir}/lib/retrofit-2.0.0-beta4.jar"/>
+      <zipfileset file="${path.variable.maven_repository}/org/apache/ant/ant-junit/1.9.4/ant-junit-1.9.4.jar"/>
+      <zipfileset file="${path.variable.maven_repository}/org/apache/ant/ant/1.9.4/ant-1.9.4.jar"/>
+      <zipfileset file="${path.variable.maven_repository}/org/apache/ant/ant-launcher/1.9.4/ant-launcher-1.9.4.jar"/>
+      <zipfileset file="${path.variable.maven_repository}/junit/junit/4.11/junit-4.11.jar"/>
+      <zipfileset file="${path.variable.maven_repository}/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar"/>
     </jar>
     <copy file="${temp.jar.path.WeatherReport.jar}" tofile="${artifact.temp.output.weatherreport:jar}/WeatherReport.jar"/>
   </target>
