@@ -45,7 +45,7 @@ public enum HttpManager implements Pull<String, String> {
     POST {
         @Override
         public String retrieve(String... params) throws IllegalStateException {
-            // TODO: To be implemented.
+            
             return null;
         }
     }
