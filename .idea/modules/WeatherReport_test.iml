@@ -9,7 +9,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="WeatherReport_main" />
+    <orderEntry type="module" module-name="WeatherReport_main" exported="" />
   </component>
   <component name="TestModuleProperties" production-module="WeatherReport_main" />
 </module>
