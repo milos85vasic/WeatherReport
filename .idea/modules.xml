@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/WeatherReport.iml" filepath="$PROJECT_DIR$/WeatherReport.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/WeatherReport.iml" filepath="$PROJECT_DIR$/.idea/modules/WeatherReport.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/WeatherReport_main.iml" filepath="$PROJECT_DIR$/.idea/modules/WeatherReport_main.iml" group="WeatherReport" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/WeatherReport_test.iml" filepath="$PROJECT_DIR$/.idea/modules/WeatherReport_test.iml" group="WeatherReport" />
     </modules>
   </component>
 </project>
