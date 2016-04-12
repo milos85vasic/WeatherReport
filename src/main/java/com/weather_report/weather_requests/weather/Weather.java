@@ -24,9 +24,9 @@ public class Weather {
             );
 
             if (response != null && response.length() > 0) {
-//                Gson gson = new Gson();
-//                HelpResponse helpResponse = gson.fromJson(response, HelpResponse.class);
-                System.out.println(response);
+                Gson gson = new Gson();
+                WeatherResponse weatherResponse = gson.fromJson(response, WeatherResponse.class);
+                System.out.println(weatherResponse);
             }
         }
     }
