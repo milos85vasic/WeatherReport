@@ -15,4 +15,11 @@ public class Constants {
         public static final String SERVICE = "help/";
     }
 
+    public class Weather {
+        public static final String SERVER = "http://api.openweathermap.org/";
+        public static final String SERVICE = "data/";
+        public static final String API_VERSION = "2.5/";
+        public static final String API_KEY = "4775e31d063562f1ec21f50cc5374650";
+    }
+
 }

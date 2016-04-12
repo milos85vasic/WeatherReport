@@ -1,6 +1,9 @@
 package com.weather_report.weather_requests;
 
 import com.weather_report.data.ScheduleData;
+import com.weather_report.weather_requests.weather.CITY;
+import com.weather_report.weather_requests.weather.COUNTRY;
+import com.weather_report.weather_requests.weather.Weather;
 
 /**
  * Created by mvasic on 3/22/16.
@@ -13,6 +16,7 @@ public enum WeatherRequestManager implements ScheduleData<WEATHER_REQUEST_TYPE, 
             switch (type) {
                 case CURRENT:
                     System.out.println("Retrieving weather for the current day.");
+                    Weather.Current.load(COUNTRY.SERBIA, CITY.BELGRADE);
                     break;
                 case FUTURE:
                     if (params.length == 0) {
